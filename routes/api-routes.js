@@ -23,8 +23,51 @@ module.exports = function(app) {
     });
 
     //put, api/workouts
+    app.put("/api/workouts/:id", function(req, res) {
+        db.Workout.update({
+            _id: mongojs.ObjectId(req.params.id)
+        }, {
+            $push: { exercises: req.body }
+        }, (err, data) => {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(data);
+            }
+        })
+    });
 
     //post, api/workouts
+    app.post("/api/workouts", ({ body }, res) => {
+        const workout = body
+        db.Workout.create(req.body, (err, data) => {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(data);
+            }
+        });
+    })
 
     //get, api/workouts/range
+    app.get("/api/workouts/range", (req, res) => {
+        db.Workout.aggregate([{
+                $addFields: {
+                    totalDuration: {
+                        $sum: "$exercises.duration"
+                    }
+                }
+            },
+            {
+                $limit: 7
+            }
+        ], (err, data) => {
+            if (err) {
+                res.json(err);
+            } else {
+                console.log(data);
+                res.json(data);
+            };
+        });
+    });
 };
