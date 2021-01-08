@@ -18,8 +18,10 @@ module.exports = function(app) {
                 totalDuration: { $sum: "$exercises.duration" }
             }
         }]).then((data) => {
-            res.json(data);
-        });
+            res.status(200).json(data);
+        }).catch((err) => {
+            res.status(400).json(err)
+        })
     });
 
     //put, api/workouts
@@ -30,9 +32,9 @@ module.exports = function(app) {
             $push: { exercises: req.body }
         }, (err, data) => {
             if (err) {
-                res.json(err);
+                res.status(400).json(err);
             } else {
-                res.json(data);
+                res.status(200).json(data);
             }
         })
     });
@@ -41,9 +43,9 @@ module.exports = function(app) {
     app.post("/api/workouts", ({ body }, res) => {
         db.Workout.create(body, (err, data) => {
             if (err) {
-                res.json(err);
+                res.status(400).json(err);
             } else {
-                res.json(data);
+                res.status(200).json(data);
             }
         });
     })
@@ -62,10 +64,10 @@ module.exports = function(app) {
             }
         ], (err, data) => {
             if (err) {
-                res.json(err);
+                res.status(400).json(err);
             } else {
                 console.log(data);
-                res.json(data);
+                res.status(200).json(data);
             };
         });
     });
