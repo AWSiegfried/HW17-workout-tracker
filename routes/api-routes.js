@@ -24,8 +24,8 @@ module.exports = function(app) {
 
     //put, api/workouts
     app.put("/api/workouts/:id", function(req, res) {
-        db.Workout.update({
-            _id: mongojs.ObjectId(req.params.id)
+        db.Workout.updateOne({
+            _id: req.params.id
         }, {
             $push: { exercises: req.body }
         }, (err, data) => {
@@ -39,8 +39,7 @@ module.exports = function(app) {
 
     //post, api/workouts
     app.post("/api/workouts", ({ body }, res) => {
-        const workout = body
-        db.Workout.create(req.body, (err, data) => {
+        db.Workout.create(body, (err, data) => {
             if (err) {
                 res.json(err);
             } else {
