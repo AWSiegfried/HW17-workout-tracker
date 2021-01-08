@@ -9,7 +9,18 @@ const db = require("../models");
 
 
 module.exports = function(app) {
+
     //get, api/workouts
+    app.get("/api/workouts", function(req, res) {
+        console.log(req);
+        db.Workout.aggregate([{
+            $addFields: {
+                totalDuration: { $sum: "$exercises.duration" }
+            }
+        }]).then((data) => {
+            res.json(data);
+        });
+    });
 
     //put, api/workouts
 
