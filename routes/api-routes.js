@@ -9,5 +9,11 @@ const db = require("../models");
 
 
 module.exports = function(app) {
+    //get, api/workouts
 
+    //put, api/workouts
+
+    //post, api/workouts
+
+    //get, api/workouts/range
 };
