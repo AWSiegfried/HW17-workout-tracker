@@ -16,6 +16,8 @@ The purpose of this assignment add a backend to a functional workout tracker.  W
 
 What I think helped me greatly was taking the time to review the given code before I actually started to fill in the gaps.  Even though we didn't really use or have to worry about the documents too much. I found it much more helpful to know exactly what the app does (or in this case, should do) before going in to fix it.
 
+Live link: https://hwseventeen-workout-tracker.herokuapp.com/
+
 
 ## **Installation**
 1. Clone the repo
