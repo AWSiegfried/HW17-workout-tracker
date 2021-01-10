@@ -5,14 +5,17 @@
 
 * [Description](#Description)
 * [Installation](#Installation)
-<!-- * [Screenshots](#Screenshots) -->
+* [Screenshots](#Screenshots)
 * [Contributing](#Contributing)
 * [Tests](#Tests)
 * [License](#License)
 * [Questions](#Questions)
 
 ## **Description**
-Mongo, Mongoose, Express
+The purpose of this assignment add a backend to a functional workout tracker.  WE had to create a Mongo database with a Mongoose schema as well as handle routes with Express.  The user should be able to input the various workouts they have completed and then see a visual represnetation of the previous seven workouts.  
+
+What I think helped me greatly was taking the time to review the given code before I actually started to fill in the gaps.  Even though we didn't really use or have to worry about the documents too much. I found it much more helpful to know exactly what the app does (or in this case, should do) before going in to fix it.
+
 
 ## **Installation**
 1. Clone the repo
@@ -25,8 +28,11 @@ https://github.com/AWSiegfried/HW17-workout-tracker.git
 npm install
 ```
 
-<!-- ## **Screenshot**
-![gif](./Assets/demo.gif) -->
+## **Screenshot**
+![png](./public/images/hw171.png)
+![png](./public/images/hw172.png)
+![png](./public/images/hw173.png)
+
 
 
 ## **Contributing**
